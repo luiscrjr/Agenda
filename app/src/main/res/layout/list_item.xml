@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/item_nome"
             android:text="Nome"
-            android:textSize="28sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             android:paddingLeft="18dp"
             />
@@ -34,7 +34,7 @@
             android:text="Telefone"
             android:textSize="16sp"
             android:paddingLeft="18dp"
-            android:paddingTop="8dp"
+            android:paddingTop="4dp"
             />
 
     </LinearLayout>
