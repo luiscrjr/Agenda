@@ -11,7 +11,7 @@ import br.com.alura.agenda.converter.AlunoConverter;
 import br.com.alura.agenda.dao.AlunoDAO;
 import br.com.alura.agenda.modelo.Aluno;
 
-public class EnviaAlunosTask extends AsyncTask<Object, Object, String> {
+public class EnviaAlunosTask extends AsyncTask<Void, Void, String> {
     private Context context;
 
     public EnviaAlunosTask(Context context) {
@@ -24,7 +24,7 @@ public class EnviaAlunosTask extends AsyncTask<Object, Object, String> {
 //    }
 
     @Override
-    protected String doInBackground(Object... params) {
+    protected String doInBackground(Void... params) {
         AlunoDAO dao = new AlunoDAO(context);
         List<Aluno> alunos = dao.buscaAlunos();
         dao.close();
@@ -36,6 +36,7 @@ public class EnviaAlunosTask extends AsyncTask<Object, Object, String> {
         String resposta = client.post(json);
 
         return resposta;
+        //return json;
     }
 
     @Override

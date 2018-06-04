@@ -10,12 +10,11 @@ import java.util.Scanner;
 public class WebClient {
     public String post(String json){
         try {
-            //URL url = new URL("https://www.caelum.com.br/mobile");
-            URL url = new URL("http://192.168.0.4/devolver");
+            URL url = new URL("https://www.caelum.com.br/mobile");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestProperty("Content-type", "application/json");
             connection.setRequestProperty("Accept", "application/json");
-            connection.setDoInput(true);
+            connection.setDoOutput(true);
 
             PrintStream output = new PrintStream(connection.getOutputStream());
             output.println(json);
