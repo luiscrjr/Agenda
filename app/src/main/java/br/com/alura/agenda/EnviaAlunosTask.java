@@ -13,15 +13,16 @@ import br.com.alura.agenda.modelo.Aluno;
 
 public class EnviaAlunosTask extends AsyncTask<Void, Void, String> {
     private Context context;
+    private ProgressDialog dialog;
 
     public EnviaAlunosTask(Context context) {
         this.context = context;
     }
 
-  //  @Override
-//    protected void onPreExecute() {
-//        ProgressDialog dialog = ProgressDialog.show(context, "Aguarde", "Enviando alunos...", true, true);
-//    }
+    @Override
+    protected void onPreExecute() {
+        dialog = ProgressDialog.show(context, "Aguarde", "Enviando alunos...", true, true);
+    }
 
     @Override
     protected String doInBackground(Void... params) {
@@ -36,11 +37,11 @@ public class EnviaAlunosTask extends AsyncTask<Void, Void, String> {
         String resposta = client.post(json);
 
         return resposta;
-        //return json;
     }
 
     @Override
     protected void onPostExecute(String resposta) {
+        dialog.dismiss();
         Toast.makeText(context, resposta, Toast.LENGTH_LONG).show();
     }
 }
